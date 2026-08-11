@@ -1,0 +1,24 @@
+{
+  "name": "evangadi-forum-backend",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/betty197/Evangadi-Forum#readme",
+  "bugs": {
+    "url": "https://github.com/betty197/Evangadi-Forum/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/betty197/Evangadi-Forum.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "app.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "mysql2": "^3.23.3"
+  }
+}
