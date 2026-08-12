@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const port = 5500;
  
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 const userRout = require('./routes/routUser');
 app.use('/api/users', userRout);
 
@@ -11,10 +14,18 @@ app.use('/api/questions', questionRout);
 const answerRout = require('./routes/routAnswer');
 app.use('/api/answers', answerRout);
 
-app.listen(port, () => {
-    console.log(`listening on ${port}`);
-})
+const dbConnection = require('./db/dbConfig');
 
-app.get('/', (req, res) => {
-    res.send('Hey betty');
-})
+async function start(){
+    try{
+        const [result] = await dbConnection.promise().execute("select 'test'")
+        app.listen(port, () => {
+            console.log("database connection established")
+            console.log(`listening on ${port}`)
+        })
+    }
+    catch (error){
+        console.log(error.message)
+    }
+}
+start();

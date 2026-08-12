@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-router.post('/', (req, res) => {
-    res.send("post answer")
-})
+const { answer } = require('../Conteroller/answerController');
+
+router.post('/', answer)
 module.exports = router;
