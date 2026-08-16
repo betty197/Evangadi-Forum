@@ -1,5 +1,4 @@
 function question (req, res){
-    res.send('post question')
+    res.send("post question")
 }
-
-module.exports = { question }
+module.exports = {question}

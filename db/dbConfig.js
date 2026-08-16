@@ -1,13 +1,13 @@
 const mysql = require('mysql2');
-
+require("dotenv").config();
 const dbConnection = mysql.createPool({
-    user: 'evangadi-admin',
-    host: 'localhost',
-    password: 'evangadi123',
-    database: 'evangadi_db',
+    user: process.env.USER,
+    host: process.env.HOST,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE,
     connectionLimit: 10
 })
-
+console.log(process.env.USER);
 //dbConnection.execute("select 'test' ", (err, result) => {
   //  if (err){
     //    console.log(err.message);
