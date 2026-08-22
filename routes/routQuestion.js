@@ -1,12 +1,24 @@
-const express = require('express');
+const express = require("express");
+
 const router = express.Router();
-const authMiddleware = require('../middleware/auth')
 
-const { question } = require('../Conteroller/questionController');
+const {
+  createQuestion,
+  getAllQuestions,
+  getSingleQuestion,
+  deleteQuestion,
+} = require("../Conteroller/questionController");
 
-router.post('/', question)
-router.get('/all-questions', authMiddleware, (req, res) => {
-    res.send("all questions")
-})
+// Create a question
+router.post("/", createQuestion);
+
+// Get all questions
+router.get("/", getAllQuestions);
+
+// Get one question
+router.get("/:questionid", getSingleQuestion);
+
+// Delete a question
+router.delete("/:questionid", deleteQuestion);
 
 module.exports = router;
